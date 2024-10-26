@@ -86,7 +86,7 @@ echo "El siguiente tipo de respaldo será: $NEXT_BACKUP_TYPE"
 # Realizar el respaldo (Completo o Incremental)
 TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
 
-if [ "$NEXT_BACKUP_TYPE" == "full" ]; then
+if [ "$NEXT_BACKUP_TYPE" = "full" ]; then
     # Realizar respaldo completo
     echo "Realizando respaldo completo..."
     FULL_BACKUP_FILE="${FULL_DEST_DIR}/full-backup-${TIMESTAMP}.tar.gz"
@@ -117,7 +117,7 @@ else
 fi
 
 # Archivar el conjunto de respaldo actual solo si hay más de seis incrementales
-if [ "$NEXT_BACKUP_TYPE" == "full" ] && [ "$INCREMENTAL_COUNT" -ge 6 ]; then
+if [ "$NEXT_BACKUP_TYPE" = "full" ] && [ "$INCREMENTAL_COUNT" -ge 6 ]; then
     echo "Archivando el conjunto de respaldo actual..."
 
     # Definir la ruta del archivo dentro de PC_casa
