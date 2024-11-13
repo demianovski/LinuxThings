@@ -74,7 +74,7 @@ INCREMENTAL_COUNT=$(ls ${FULL_DEST_DIR}/incremental-backup-*.tar.gz 2>/dev/null 
 if [ "$INCREMENTAL_COUNT" -ge 6 ]; then
     echo "Se encontraron más de seis respaldos incrementales para este conjunto de respaldo."
     read -p "¿Quieres iniciar un nuevo conjunto de respaldo completo o continuar con incremental (f/i)? " USER_CHOICE
-    if [ "$USER_CHOICE" == "f" ]; then
+    if [ "$USER_CHOICE" = "f" ]; then
         NEXT_BACKUP_TYPE="full"
     else
         NEXT_BACKUP_TYPE="incremental"
